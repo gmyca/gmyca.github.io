@@ -49,6 +49,8 @@ jobs:
         run: pnpm install
 
       - name: Build site
+        env:
+          VITE_WEATHER_KEY: ${{ secrets.VITE_WEATHER_KEY }}
         run: pnpm build
 
       - name: Setup Pages
