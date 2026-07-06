@@ -11,6 +11,7 @@ import viteCompression from "vite-plugin-compression";
 // https://vitejs.dev/config/
 export default ({ mode }) =>
   defineConfig({
+    base: process.env.VITE_BASE || "/",
     plugins: [
       vue(),
       AutoImport({
