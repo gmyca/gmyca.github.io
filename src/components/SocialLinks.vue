@@ -3,10 +3,11 @@
   <div class="social">
     <div class="link">
       <a
-        v-for="item in socialLinks"
+        v-for="item in socialLinks" 
         :key="item.name"
         :href="item.url"
         target="_blank"
+        @click="handleSocialClick(item, $event)"
         @mouseenter="socialTip = item.tip"
         @mouseleave="socialTip = '通过这里联系我吧'"
       >
@@ -22,6 +23,14 @@ import socialLinks from "@/assets/socialLinks.json";
 
 // 社交链接提示
 const socialTip = ref("通过这里联系我吧");
+
+// 社交链接点击处理
+const handleSocialClick = (item, event) => {
+  if (item.name === "QQ") {
+    event.preventDefault();
+    ElMessage({ message: "不告诉你（", type: "info" });
+  }
+};
 </script>
 
 <style lang="scss" scoped>
