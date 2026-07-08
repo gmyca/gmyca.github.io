@@ -41,6 +41,7 @@
 </template>
 
 <script setup>
+import { h } from "vue";
 import { Icon } from "@vicons/utils";
 // 可前往 https://www.xicons.org 自行挑选并在此处引入
 import { Link, Blog, CompactDisc, Cloud, Compass, Book, Fire, LaptopCode } from "@vicons/fa"; // 注意使用正确的类别
@@ -61,6 +62,22 @@ const siteLinksList = computed(() => {
   return result;
 });
 
+// Minecraft 图标（自定义 SVG 组件）
+const Minecraft = {
+  render() {
+    return h(
+      "svg",
+      { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24" },
+      [
+        h("path", {
+          fill: "currentColor",
+          d: "M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2m2 4v4h4v2H8v6h2v-2h4v2h2v-6h-2v-2h4V6h-4v4h-4V6z",
+        }),
+      ],
+    );
+  },
+};
+
 // 网站链接图标
 const siteIcon = {
   Blog,
@@ -70,11 +87,12 @@ const siteIcon = {
   Book,
   Fire,
   LaptopCode,
+  Minecraft,
 };
 
 // 链接跳转
 const jumpLink = (data) => {
-  if (data.name === "博客") {
+  if (data.link) {
     window.open(data.link, "_blank");
   } else {
     ElMessage({

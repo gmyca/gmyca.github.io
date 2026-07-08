@@ -3,5 +3,10 @@
     "icon": "Blog",
     "name": "博客",
     "link": "https://blog.gmyca.com/"
+  },
+  {
+    "icon": "Minecraft",
+    "name": "MC服务器",
+    "link": "http://mc.gmyca.com:23333"
   }
 ]
